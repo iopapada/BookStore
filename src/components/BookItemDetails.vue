@@ -1,6 +1,6 @@
 <template>
   <div class="item-details">
-    <form @submit.prevent="submit" novalidate>
+    <form>
       <a :href="volumeInfo.previewLink" target="_blank">
         <template v-if="volumeInfo.imageLinks">
           <img :src="volumeInfo.imageLinks.thumbnail" :alt="volumeInfo.title">
@@ -63,12 +63,6 @@
             ? ' and ' + category : category }}
           </em>
         </span>
-      </div> 
-
-      <div>
-        <label>test:</label>
-        <input v-if="!volumeInfo.authors" placeholder="No information">
-        <input v-else v-for="(autor, index) in volumeInfo.autor" :key="index" value=",">{{autor}}
       </div> 
 
       <div>
@@ -156,13 +150,10 @@ export default {
       required: false
     }
   },
-  messages: {
-    required: "{attribute} is required!",
-    isNumber: "{attribute} must contain only numbers",
-    isValidDateFormat: "{attribute} is not a valid Date format.",
-  },
   data() {
+    return{
 
+    }
   },
   methods: {
     onKeydown (event) {
@@ -191,11 +182,7 @@ export default {
   width: 140px;
   text-align: right;
 }
-/* .item-details div span {
-  border: groove;
-  margin-bottom: 5px;
-  width: 400px;
-} */
+
 .item-details div span label{
   border: groove;
   margin-bottom: 5px;

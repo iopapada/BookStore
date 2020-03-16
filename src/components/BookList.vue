@@ -2,12 +2,12 @@
   <div class="list-and-details">
     <div class="filter">  
       
-      <Dropdown class="dropdown-menu-filters"
+      <Dropdown class="dropdown-menu"
           :options="filters"
           v-on:selected="pagecountFilter"
           :disabled="false"
           placeholder="Filter on count page"/>
-      <Dropdown class="dropdown-menu-sort"
+      <Dropdown class="dropdown-menu"
           :options="options"
           v-on:selected="orderSelectionBy"
           :disabled="false"
@@ -49,7 +49,6 @@
 </template>
 
 <script>
-import store from '@/store/index.js'
 import BookItem from "./BookItem.vue";
 import BookItemDetails from "./BookItemDetails.vue";
 import BookItemForm from "./BookItemForm.vue";
@@ -74,8 +73,6 @@ export default {
       pcFilter: {name: 'All', value: 'all'},
 
       selectedBook: null,
-
-      bookCollection: store.state.books,
       isAddClicked: false
     }
   },
@@ -171,6 +168,7 @@ export default {
 }
 
 .dropdown-menu {
-  margin-top: 0%;
+  margin: 1px;
+  padding: 10px;
 }
 </style>

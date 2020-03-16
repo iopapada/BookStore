@@ -1,5 +1,5 @@
 <template>
-<v-form id="app" >
+<form id="app" >
   <div class=msg-errors>
   <p v-if="errors.length">
     <span>Please correct the following error(s):</span>
@@ -18,10 +18,8 @@
     </div>
 
     <div>
-      <form-group :validator="v" label="Title">
-        <label>Title: *</label>
-        <input type="title" class="input" placeholder="required" v-model="title">
-      </form-group>
+      <label>Title: *</label>
+      <input type="title" class="input" placeholder="required" v-model="title">
     </div>
 
     <div>
@@ -109,7 +107,7 @@
     </v-btn>
 
   </div>
-</v-form>
+</form>
 </template>
 
 <script>
@@ -119,24 +117,26 @@ export default {
     return {
       errors:[],
       imageLinks:{thumbnail:"https://islandpress.org/sites/default/files/400px%20x%20600px-r01BookNotPictured.jpg"},
-      title:'',
-      subtitle:'',
-      authors:'',
-      publisher:'',
-      publishedDate:'',
-      categories:'',
-      pageCount:0,
-      printType:'',
-      averageRating:0,
-      ratingsCount:0,
-      maturityRating:'',
-      contentVersion:'',
-      language:'',
-      previewLink:'',
-      infoLink:'',
-      canonicalVolumeLink:'',
-      description:''
+      title: null,
+      subtitle: null,
+      authors: null,
+      publisher: null,
+      publishedDate: null,
+      categories: null,
+      pageCount: '',
+      printType: null,
+      averageRating: null,
+      ratingsCount: null,
+      maturityRating: null,
+      contentVersion: null,
+      language: null,
+      previewLink: null,
+      infoLink: null,
+      canonicalVolumeLink: null,
+      description: null
       };
+  },
+  created(){
   },
   methods: {
     checkForm:function(e) {
@@ -151,7 +151,7 @@ export default {
       if(this.errors.length!==0) return true;
       
       e.preventDefault();
-      this.triggerFunction(this.title, this.subtitle, this.authors, this.publisher, this.publishedDate, this.categories, this.pageCount, this.printType, this.averageRating, this.ratingsCount, this.maturityRating, this.contentVersion, this.language, this.previewLink, this.infoLink, this.canonicalVolumeLink, this.description);
+      this.triggerFunction(this.imageLinks, this.title, this.subtitle, this.authors, this.publisher, this.publishedDate, this.categories, this.pageCount, this.printType, this.averageRating, this.ratingsCount, this.maturityRating, this.contentVersion, this.language, this.previewLink, this.infoLink, this.canonicalVolumeLink, this.description);
       alert('ok!');
     },
     onKeydown (event) {
