@@ -40,7 +40,7 @@
     </div>
 
     <v-btn
-      fab absolute dark top right style="top: 30px" color=#42b983
+      fab absolute dark top right style="top: 30px" color=#75B600
       @click="addBook">
       <v-icon>add_circle</v-icon>
     </v-btn>
@@ -109,7 +109,7 @@ export default {
         temp = this.$store.getters.getMediumBooks;
       else if(this.pcFilter.value == "large")
         temp = this.$store.getters.getLargeBooks;
-
+      console.log(temp);
       switch(this.selectedOrderBy.name){
         case "Newest":
           return temp.sort(function(a, b){return new Date(a.volumeInfo.publishedDate) - new Date(b.volumeInfo.publishedDate);});

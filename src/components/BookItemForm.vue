@@ -101,7 +101,7 @@
     <input contenteditable="true" placeholder="Add description" v-model="description"/>
     
     <v-btn
-    position="relative" dark bottom color=#42b983
+    position="relative" dark bottom color=#75B600
     @click="checkForm">
     <v-icon>save</v-icon>
     </v-btn>
@@ -123,7 +123,7 @@ export default {
       publisher: null,
       publishedDate: null,
       categories: null,
-      pageCount: '',
+      pageCount: null,
       printType: null,
       averageRating: null,
       ratingsCount: null,

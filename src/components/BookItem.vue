@@ -37,6 +37,11 @@ export default {
       required: true
     }
   },
+  data(){
+    return{
+
+    }
+  },
   computed: {
     volumeInfo(){
       return this.book.volumeInfo
@@ -59,5 +64,9 @@ ul li:first-child {
 }
 .author {
   font-size: 14px;
+}
+
+.book-item {
+  color: #000000c4;
 }
 </style>

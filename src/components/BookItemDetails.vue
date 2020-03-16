@@ -132,7 +132,7 @@
       </div>
       
       <v-btn type="submit" class="button"
-      position="relative" dark bottom color=#42b983
+      position="relative" dark bottom color=#75B600
       @click="editBook">
         <v-icon>edit</v-icon>
       </v-btn>

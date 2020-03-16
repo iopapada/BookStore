@@ -33,7 +33,7 @@
       fixed
       bottom
       right
-      color=#42b983
+      color=#75B600
       @click="toTop"
     >
       <v-icon>keyboard_arrow_up</v-icon>
@@ -105,12 +105,12 @@
 }
 
 #nav a.router-link-exact-active {
-  color: #42b983;
+  color: #75B600;
 }
 
 .page-title{
   font-size: 3.25rem;
-  color: #42b983;
+  color: #75B600;
 }
 
 .home-content{
