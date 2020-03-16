@@ -39,7 +39,7 @@
       options: {
         type: Array,
         required: true,
-        default: [],
+        default: ()=>[],
         note: 'Options of dropdown. An array of options with name and value',
       },
       placeholder: {
