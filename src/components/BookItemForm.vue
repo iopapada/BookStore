@@ -99,10 +99,9 @@
     
     <b-form-textarea 
         contenteditable=true
-        v-model="description"
         placeholder="Enter something..."
         rows="3"
-        max-rows="16">{{volumeInfo.description }}
+        max-rows="16">{{description }}
      </b-form-textarea>
     
     <v-btn

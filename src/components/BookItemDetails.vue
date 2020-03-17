@@ -195,27 +195,35 @@ export default {
         alert("Valid date format of Published Date field is only the 4-digit of YEAR.");
         event.target.value = item.publishedDate;
       }
-      item.publishedDate = event.target.value; 
+      else
+        item.publishedDate = event.target.value; 
     },
     changeCategories: function(item, event){
       item.categories = event.target.value; 
     },
     changePageCount: function(item, event){
-      if(!isNumeric(item.pageCount) )
-      {
-        alert("Page Count field can be Only Number.");
-        event.target.value = item.pageCount;
-      }
       item.pageCount = event.target.value; 
     },
     changePrintType: function(item, event){
       item.printType = event.target.value; 
     },
     changeAverageRating: function(item, event){
-      item.averageRating = event.target.value; 
+      if(!isNumeric(item.averageRating) )
+      {
+        alert("Average rating field can be Only Number.");
+        event.target.value = item.averageRating;
+      }
+      else
+        item.averageRating = event.target.value; 
     },
     changeRatingsCount: function(item, event){
-      item.ratingsCount = event.target.value; 
+      if(!isNumeric(item.ratingsCount) )
+      {
+        alert("Ratings count field can be Only Number.");
+        event.target.value = item.ratingsCount;
+      }
+      else
+        item.ratingsCount = event.target.value; 
     },
     changeMaturityRating: function(item, event){
       item.maturityRating = event.target.value; 
