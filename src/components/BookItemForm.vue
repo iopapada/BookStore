@@ -97,8 +97,13 @@
     <input id="canonicalVolumeLink" name="canonicalVolumeLink" v-model="canonicalVolumeLink">
     </div>
     
-    <span>Descritpion: </span>
-    <input contenteditable="true" placeholder="Add description" v-model="description"/>
+    <b-form-textarea 
+        contenteditable=true
+        v-model="description"
+        placeholder="Enter something..."
+        rows="3"
+        max-rows="16">{{volumeInfo.description }}
+     </b-form-textarea>
     
     <v-btn
     position="relative" dark bottom color=#75B600
@@ -116,7 +121,7 @@ export default {
   data() {
     return {
       errors:[],
-      imageLinks:{thumbnail:"https://islandpress.org/sites/default/files/400px%20x%20600px-r01BookNotPictured.jpg"},
+      imageLinks:null,
       title: null,
       subtitle: null,
       authors: null,
@@ -151,6 +156,8 @@ export default {
       if(this.errors.length!==0) return true;
       
       e.preventDefault();
+
+      //var newBook = {imageLinks:this.imageLinks, title:this.title, subtitle:this.subtitle, authors:this.authors, publisher:this.publisher, publishedDate:this.publishedDate, categories:this.categories, pageCount:this.pageCount, printType:this.printType, averageRating:this.averageRating, ratingsCount:this.ratingsCount, maturityRating:this.maturityRating, contentVersion:this.contentVersion, language:this.language, previewLink:this.previewLink, infoLink:this.infoLink, canonicalVolumeLink:this.canonicalVolumeLink, description:this.description};
       this.triggerFunction(this.imageLinks, this.title, this.subtitle, this.authors, this.publisher, this.publishedDate, this.categories, this.pageCount, this.printType, this.averageRating, this.ratingsCount, this.maturityRating, this.contentVersion, this.language, this.previewLink, this.infoLink, this.canonicalVolumeLink, this.description);
       alert('ok!');
     },
@@ -160,44 +167,10 @@ export default {
         event.preventDefault()
       }
     },
-    triggerFunction: function(
-      imageLinks,
-      title,
-      subtitle,
-      authors,
-      publisher,
-      publishedDate,
-      categories,
-      pageCount,
-      printType,
-      averageRating,
-      ratingsCount,
-      maturityRating,
-      contentVersion,
-      language,
-      previewLink,
-      infoLink,
-      canonicalVolumeLink,
-      description){  
-      this.$store.dispatch('triggerFunction',
-      imageLinks,
-      title,
-      subtitle,
-      authors,
-      publisher,
-      publishedDate,
-      categories,
-      pageCount,
-      printType,
-      averageRating,
-      ratingsCount,
-      maturityRating,
-      contentVersion,
-      language,
-      previewLink,
-      infoLink,
-      canonicalVolumeLink,
-      description)
+    triggerFunction: function(imageLinks, title, subtitle, authors, publisher, publishedDate, categories, pageCount, printType,
+      averageRating, ratingsCount, maturityRating, contentVersion, language, previewLink, infoLink, canonicalVolumeLink, description){  
+      this.$store.dispatch('triggerFunction',{ imageLinks, title, subtitle, authors, publisher, publishedDate,
+      categories, pageCount, printType, averageRating, ratingsCount, maturityRating, contentVersion, language, previewLink, infoLink, canonicalVolumeLink, description})
     }
   }
 }

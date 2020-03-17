@@ -12,7 +12,7 @@
           v-on:selected="orderSelectionBy"
           :disabled="false"
           placeholder="Order by"/>
-  </div>
+    </div>
 
     <div class="book-list">
       <!-- Use native modifier due to BookItem is not a native HTML element  -->
@@ -94,6 +94,7 @@ export default {
       this.pcFilter = selection;
     },
     displayDetails(book) {
+      //console.log(book);
       this.selectedBook=book
       this.isAddClicked=false
     }
@@ -109,16 +110,16 @@ export default {
         temp = this.$store.getters.getMediumBooks;
       else if(this.pcFilter.value == "large")
         temp = this.$store.getters.getLargeBooks;
-      console.log(temp);
+      //console.log(temp);
       switch(this.selectedOrderBy.name){
         case "Newest":
-          return temp.sort(function(a, b){return new Date(a.volumeInfo.publishedDate) - new Date(b.volumeInfo.publishedDate);});
+          return temp.sort(function(a, b){return new Date(a.publishedDate) - new Date(b.publishedDate);});
         case "Oldest":
-          return temp.sort(function(a, b){return new Date(b.volumeInfo.publishedDate) - new Date(a.volumeInfo.publishedDate);});
+          return temp.sort(function(a, b){return new Date(b.publishedDate) - new Date(a.publishedDate);});
         case "Most pages":
-          return temp.sort(function(a, b){return b.volumeInfo.pageCount - a.volumeInfo.pageCount;});
+          return temp.sort(function(a, b){return b.pageCount - a.pageCount;});
         case "Less pages":
-          return temp.sort(function(a, b){return a.volumeInfo.pageCount - b.volumeInfo.pageCount;});
+          return temp.sort(function(a, b){return a.pageCount - b.pageCount;});
 
         default:
           return temp;

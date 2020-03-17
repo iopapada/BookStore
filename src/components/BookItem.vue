@@ -19,9 +19,10 @@
           By
           <span v-for="(author, index) in volumeInfo.authors" :key="index">
             <em>
-              {{
-              index + 1 !== volumeInfo.authors.length && index + 1 !== book.volumeInfo.authors.length-1 ? author + ', ' : index + 1 == book.volumeInfo.authors.length && index+1 !== 1 ? ' and ' + author : author
-              }}
+              {{author}}
+              <!-- {{
+              index + 1 !== volumeInfo.authors.length && index + 1 !== volumeInfo.authors.length-1 ? author + ', ' : index + 1 == volumeInfo.authors.length && index+1 !== 1 ? ' and ' + author : author
+              }} -->
             </em>
           </span>
         </span>
@@ -37,6 +38,9 @@ export default {
       required: true
     }
   },
+  created(){
+    //console.log(this.book);
+  },
   data(){
     return{
 
@@ -44,7 +48,7 @@ export default {
   },
   computed: {
     volumeInfo(){
-      return this.book.volumeInfo
+      return this.book
     }
   }
 }
