@@ -49,7 +49,9 @@
 <script>
   //import Header from './components/Header'
   import store from './store/index.js'
-  const API_KEY = "AIzaSyDTh_TfDbaQzaIypAS_N872MLSIKcz7mpE";
+  require('dotenv').config();
+  
+  const API_KEY = process.env.VUE_APP_API_KEY;
   const COUNT = "20";
 
   export default {

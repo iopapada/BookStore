@@ -158,7 +158,7 @@ export default {
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   grid-gap: 1rem;
   padding: 15px;
-  border: 6px solid #ccc;
+  /* border: 6px solid #ccc; */
 
   width: 65%;
   float: left;
