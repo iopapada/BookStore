@@ -1,24 +1,10 @@
-# bookstore
+# BookStore
+BookStore is a Vue.js web application project where created as a sample for adding and test various features.
 
 ## Project setup
 ```
-npm install
+npm install, for develop: npm run serve, for production: npm run build
 ```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### BookStore on Heroku
+See [https://app-bookstore-iopapada.herokuapp.com/](https://app-bookstore-iopapada.herokuapp.com/).
