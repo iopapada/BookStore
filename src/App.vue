@@ -85,14 +85,11 @@
         let items = jsonResponse.items;
         return items;
       });
-      //console.log(temp);
-      //need to construct the volumeInfo with the id
       var temp2 = [];
       temp.forEach(x => {
         x.volumeInfo["id"]=x.id;
         temp2.push(x.volumeInfo);
       });
-      //console.log(temp2);
       store.state.books = temp2;  
     }
   }
