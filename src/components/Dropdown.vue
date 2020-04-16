@@ -138,7 +138,7 @@
 
 <style lang="scss" scoped>
   .dropdown {
-    position: relative;
+    //position: relative;
     display: block;
     margin: auto;
     .dropdown-input {

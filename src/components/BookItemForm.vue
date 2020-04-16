@@ -97,12 +97,16 @@
     <input id="canonicalVolumeLink" name="canonicalVolumeLink" v-model="canonicalVolumeLink">
     </div>
     
-    <b-form-textarea 
-        contenteditable=true
-        placeholder="Enter something..."
-        rows="3"
-        max-rows="16">{{description }}
-     </b-form-textarea>
+    <div>
+      <label>Descritpion: </label>
+      <textarea 
+          contenteditable=true
+          placeholder="Enter description..."
+          rows="5"
+          max-rows="16"
+          v-model="description">
+      </textarea>
+    </div>
     
     <v-btn
     position="relative" dark bottom color=#75B600
@@ -176,17 +180,23 @@ export default {
 </script>
 
 <style>
-.form div input{
+.form div input, form div textarea{
   border: groove;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
+  width: 400px;
+
 }
 .form div label{
   display: inline-block;
   width: 140px;
   text-align: right;
 }
-.form div input{
+
+.form div span{
+  border: groove;
+  margin-bottom: 5px;
   width: 400px;
+  text-align: right;
 }
 
 .msg-errors{

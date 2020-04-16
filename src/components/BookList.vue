@@ -40,7 +40,7 @@
     </div>
 
     <v-btn
-      fab absolute dark top right style="top: 30px" color=#75B600
+      fab absolute dark top right style="top: 140px" color=#75B600
       @click="addBook">
       <v-icon>add_circle</v-icon>
     </v-btn>
@@ -171,5 +171,11 @@ export default {
 .dropdown-menu {
   margin: 1px;
   padding: 10px;
+}
+
+@media screen and (max-width: 759px){
+  .list-and-details{
+    padding-left: 60px;
+  }
 }
 </style>

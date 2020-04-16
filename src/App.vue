@@ -1,29 +1,12 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="dark lighter-3 white--text text--lighten-3"
-      dark
-      height="120">
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="@/assets/logo.svg"
-          width="100"/>
-
-        <v-toolbar-title class="page-title">
-          BookStore
-        </v-toolbar-title>
-      </div>
-      
-      <div id="nav">
-        <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link>
-      </div>
-    </v-app-bar>
+    <NavBar
+      :nav-links="navLinks"
+      :image-path="require('@/assets/logo.svg')"
+      background="darkgray"
+      linkColor="#333"
+      hoverBackground="#fff"
+    />
 
     <v-btn
       v-scroll="onScroll"
@@ -39,15 +22,13 @@
       <v-icon>keyboard_arrow_up</v-icon>
     </v-btn>
       
-    <v-content>
       <router-view/>
-    </v-content>
 
   </v-app>
 </template>
 
 <script>
-  //import Header from './components/Header'
+  import NavBar from '@/components/NavigationBar.vue'
   import store from './store/index.js'
   require('dotenv').config();
   
@@ -57,10 +38,33 @@
   export default {
     name: "App",
     components: {
+      NavBar
     },
     data: () => ({
       fab: false,
-      url: `https://www.googleapis.com/books/v1/volumes?q=intitle:king&maxResults=${COUNT}&key=${API_KEY}`
+      url: `https://www.googleapis.com/books/v1/volumes?q=intitle:king&maxResults=${COUNT}&key=${API_KEY}`,
+      navLinks: [
+        {
+          text: 'Home',
+          path: '/',
+          icon: 'ion-ios-home'
+        },
+        {
+          text: 'Usage',
+          path: '/',
+          icon: 'ion-ios-business'
+        },
+        {
+          text: 'Worldwide',
+          path: '/',
+          icon: 'ion-ios-globe'
+        },
+        {
+          text: 'Contact',
+          path: '/about',
+          icon: 'ion-ios-megaphone'
+        }
+      ]
     }),
     methods: {
       onScroll (e) {
@@ -94,38 +98,39 @@
   }
 </script>
 
-<style>
+<style lang="scss">
+@import 'https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css';
+
+figure {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 10px;
+  margin-inline-end: 0;
+}
+
+body{
+  margin: 0;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  background-color: darkgray;
+  //background-color: darkgray;
 }
 
 #nav {
   padding: 30px;
-  margin-left: auto;
-  margin-top: auto;
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+    &.router-link-exact-active {
+      color: #75B600;
+    }
+  }
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #75B600;
-}
-
-.page-title{
-  font-size: 3.25rem;
-  color: #75B600;
-}
-
-.home-content{
-  display: inline;
-}
 
 </style>

@@ -76,7 +76,7 @@
 
       <div>
         <label>Print type:</label>
-        <input type="text" id="printType" name="printType" :value=volumeInfo.printType v-model="printType" @change="changePrintType(volumeInfo,$event)">
+        <input type="text" id="printType" name="printType" :value=volumeInfo.printType @change="changePrintType(volumeInfo,$event)">
       </div>
 
       <div>
@@ -119,14 +119,17 @@
         <input type="text" id="canonicalVolumeLink" name="canonicalVolumeLink" :value=volumeInfo.canonicalVolumeLink @change="changeCanonicalVolumelink(volumeInfo,$event)">
       </div>
       
-      <span>Descritpion: </span>
-      <b-form-textarea 
-        contenteditable=true
-        @change="changeDescription(volumeInfo,$event)"
-        placeholder="Enter something..."
-        rows="3"
-        max-rows="16">{{volumeInfo.description }}
-     </b-form-textarea>
+      <div>
+        <label>Descritpion: </label>
+        <textarea 
+          contenteditable=true
+          @change="changeDescription(volumeInfo,$event)"
+          placeholder="Enter something..."
+          rows="5"
+          max-rows="16"
+          v-model="volumeInfo.description">
+        </textarea>
+      </div>
       
       <v-btn type="submit" class="button"
       position="relative" dark bottom color=#75B600
@@ -263,7 +266,7 @@ export default {
 </script>
 
 <style>
-.item-details div input{
+.item-details div input, .item-details div textarea{
   border: groove;
   margin-bottom: 15px;
   width: 400px;
@@ -274,12 +277,11 @@ export default {
   text-align: right;
 }
 
-.item-details div span label{
+.item-details div span{
   border: groove;
   margin-bottom: 5px;
   width: 400px;
   text-align: right;
-
 }
 
 ::placeholder { 
